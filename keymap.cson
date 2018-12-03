@@ -1,0 +1,116 @@
+# Your keymap
+#
+# Atom keymaps work similarly to style sheets. Just as style sheets use
+# selectors to apply styles to elements, Atom keymaps use selectors to associate
+# keystrokes with events in specific contexts. Unlike style sheets however,
+# each selector can only be declared once.
+#
+# You can create a new keybinding in this file by typing "key" and then hitting
+# tab.
+#
+# Here's an example taken from Atom's built-in keymap:
+#
+# 'atom-text-editor':
+#   'enter': 'editor:newline'
+#
+# 'atom-workspace':
+#   'ctrl-shift-p': 'core:move-up'
+#   'ctrl-p': 'core:move-down'
+#
+# You can find more information about keymaps in these guides:
+# * http://flight-manual.atom.io/using-atom/sections/basic-customization/#customizing-keybindings
+# * http://flight-manual.atom.io/behind-atom/sections/keymaps-in-depth/
+#
+# If you're having trouble with your keybindings not working, try the
+# Keybinding Resolver: `Cmd+.` on macOS and `Ctrl+.` on other platforms. See the
+# Debugging Guide for more information:
+# * http://flight-manual.atom.io/hacking-atom/sections/debugging/#check-the-keybindings
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
+
+# 'body':
+
+  # 'alt-cmd-j': 'pane:split-left-and-move-active-item'
+  # 'alt-cmd-k': 'pane:split-right-and-move-active-item'
+  # 'alt-cmd-j': 'pane:split-right-and-move-active-item'
+  # 'alt-cmd-k': 'pane:split-r
+
+# '.platform-darwin atom-workspace':
+'.platform-darwin':
+  # 'ctrl-left': 'window:focus-previous-pane'
+  # 'ctrl-right': 'window:focus-next-pane'
+  'cmd-.': 'platformio-ide-terminal:toggle'
+  'ctrl-.': 'platformio-ide-terminal:toggle'
+  # 'shift-cmd-.': 'platformio-ide-terminal:new'
+  # 'shift-ctrl-.': 'platformio-ide-terminal:new'
+  #'shift-cmd-x': 'platformio-ide-terminal:close'
+  #'shift-ctrl-x': 'platformio-ide-terminal:close'
+  # 'cmd-alt right': 'move-tab-or-split:right'
+  # 'cmd-alt left': 'move-tab-or-split:left'
+  # 'ctrl-alt-cmd-.': 'key-binding-resolver:toggle'
+  # 'ctrl-shift-[': 'window:focus-pane-on-left'
+  # 'ctrl-shift-]': 'window:focus-pane-on-right'
+  # 'ctrl-[': 'pane:split-left'
+  # 'ctrl-]': 'pane:split-right'
+
+
+  # 'cmd-c': 'atom-text-editor:copy'
+  # 'cmd-v': 'atom-text-editor:paste'
+  # 'ctrl-x': 'platformio-ide-terminal:close'
+
+# '.platform-ide-terminal':
+#   'ctrl-.': 'platformio-ide-terminal:toggle'
+#   'shift-cmd-.': 'platformio-ide-terminal:new'
+#   'ctrl-<': 'platformio-ide-terminal:prev'
+#   'ctrl->': 'platformio-ide-terminal:next'
+#   'cmd-c': 'platformio-ide-terminal:copy'
+#   'cmd-v': 'platformio-ide-terminal:paste'
+#   'ctrl-x': 'platformio-ide-terminal:close'
+
+
+# Allows using enter to select an autocomplete suggestion.
+'.platform-darwin atom-text-editor[data-grammar~="clojure"].autocomplete-active':
+  'enter':          'autocomplete-plus:confirm'
+
+'.platform-darwin atom-text-editor[data-grammar~="clojure"]':
+
+  # Indent the current selection
+  'cmd-i':          'lisp-paredit:indent'
+
+  # Expand the selection up a block
+  'ctrl-shift-m':   'lisp-paredit:expand-selection'
+
+  # Provides proper indentation when enter is pressed. (I disable normal lisp-paredit keybindings)
+  'enter':          'lisp-paredit:newline'
+
+  # Helpers for cutting, copying, pasting, deleting, and indenting a Clojure code
+  'cmd-shift-x':    'jason:cut-sexp'
+  'cmd-shift-c':    'jason:copy-sexp'
+  'cmd-shift-v':    'jason:paste-sexp'
+  'cmd-shift-delete': 'jason:delete-sexp'
+  'cmd-shift-d':    'jason:delete-sexp'
+  'cmd-shift-i':    'jason:indent-top-sexp'
+
+
+# helpers. Less applicable to clojure code. (optional)
+'.platform-darwin atom-workspace atom-text-editor':
+  'ctrl-w l': 'window:focus-pane-on-right'
+  'ctrl-w h': 'window:focus-pane-on-left'
+  'alt-up': 'editor:move-line-up'
+  'alt-down': 'editor:move-line-down'
+  'cmd-alt-down': 'editor:duplicate-lines'
+  'cmd-d': 'editor:delete-line'
+  'ctrl-s':'tree-view:toggle'
+  'cmd-e': 'find-and-replace:select-next'
+  'cmd-alt-ctrl-w': 'editor:toggle-soft-wrap'
+  'alt-backspace': 'editor:delete-to-previous-word-boundary'
+  'alt-delete': 'editor:delete-to-next-word-boundary'
+  'ctrl-d': 'proto-repl:exit-repl'
+  'cmd-l':  'go-to-line:toggle'
+  'ctrl-l': 'proto-repl:clear-repl'
+  'ctrl-alt-f': 'proto-repl:load-current-file'
+  'ctrl-cmd-b': 'proto-repl:execute-block'
+  'ctrl-cmd-f': 'proto-repl:load-current-file'
